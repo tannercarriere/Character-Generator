@@ -8,7 +8,7 @@ Non Player Character or a new player joins the game and they need a character in
 Examples of character sheets can be found [here](https://dnd.wizards.com/articles/features/character_sheets)
 
 ## Usage
-Have all the files outside the source but in the project, and launch Run. Run will prompt the user
+Have all the files inside the source, and launch Run. Run will prompt the user
 with a GUI interface to put in a file directory if none is given in config and a number of
 characters to generate. Simply put in a directory and select a number of characters then click
 "Create" and the characters will be placed in the designated folder.
