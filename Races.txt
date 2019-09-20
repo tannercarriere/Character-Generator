@@ -1,0 +1,65 @@
+# all '#' at the start of a line signify a comment and will be ignored
+Aarakocra:	Dex +2,	Wis +1				
+Aasimar (Fallen):	Cha +2,	Str +1				
+Aasimar (Protector):	Cha +2,	Wis +1				
+Aasimar (Scourge):	Cha +2,	Con +1				
+Bugbear:	Str +2,	Dex +1				
+Centaur:	Str +2,	Wis +1				
+Dragonborn:	Str +2,	Cha +1				
+Dwarf (Duergar):	Con +2,	Str +1				
+Dwarf (Hill):	Con +2,	Wis +1				
+Dwarf (Mountain):	Str +2,	Con +2				
+Elf (Drow):	Dex +2,	Cha +1				
+Elf (Eladrin):	Dex +2,	Cha +1				
+Elf (High):	Dex +2,	Int +1				
+Elf (Sea):	Dex +2,	Con +1				
+Elf (Shadar-kai):	Dex +2,	Con +1				
+Elf (Wood):	Dex +2,	Wis +1				
+Firbolg:	Wis +2,	Str +1				
+Genasi (Air):	Con +2,	Dex +1				
+Genasi (Earth):	Con +2,	Str +1				
+Genasi (Fire):	Con +2,	Int +1				
+Genasi (Water):	Con +2,	Wis +1				
+Gith (Githyanki):	Str +2,	Int +1				
+Gith (Githzerai):	Wis +2,	Int +1				
+Gnome (Deep):	Int +2,	Dex +1				
+Gnome (Deep/Svirfneblin):	Int +2,	Dex +1				
+Gnome (Forest):	Int +2,	Dex +1				
+Gnome (Rock):	Int +2,	Con +1				
+Goblin:	Dex +2,	Con +1				
+Goliath:	Str +2,	Con +1				
+Half-Elf:	Cha +2,	Any 2 +1				
+Half-Elf (Aquatic Elf Descent):	Cha +2,	Any 2 +1				
+Half-Elf (Drow Descent):	Cha +2,	Any 2 +1				
+Half-Elf (Moon Elf or Sun Elf Descent):	Cha +2,	Any 2 +1				
+Half-Elf (Wood Elf Descent):	Cha +2,	Any 2 +1				
+Half-Orc:	Str +2,	Con +1				
+Halfling (Ghostwise):	Dex +2,	Wis +1				
+Halfling (Lightfoot):	Dex +2,	Cha +1				
+Halfling (Stout):	Dex +2,	Con +1				
+Hobgoblin:	Con +2,	Int +1				
+Human:	Str +1,	Dex +1,	Con +1,	Int +1,	Wis +1,	Cha +1
+Human (Variant):	Any 2 +1					
+Kenku:	Dex +2,	Wis +1				
+Kobold:	Dex +2,	Str -2				
+Lizardfolk:	Con +2,	Wis +1				
+Loxodon:	Con +2,	Wis +1				
+Minotaur:	Str +2,	Con +1				
+Orc:	Str +2,	Con +1,	Int -2			
+Simic Hybrid:	Con +2,	Any 1 +1				
+Tabaxi:	Dex +2,	Cha +1				
+Tiefling:	Cha +2,	Int +1				
+Tiefling (Asmodeus):	Cha +2,	Int +1				
+Tiefling (Baalzebul):	Cha +2,	Int +1				
+Tiefling (Dispater):	Cha +2,	Dex +1				
+Tiefling (Fierna):	Cha +2,	Wis +1				
+Tiefling (Glasya):	Cha +2,	Dex +1				
+Tiefling (Levistus):	Cha +2,	Con +1				
+Tiefling (Mammon):	Cha +2,	Int +1				
+Tiefling (Mephistopheles):	Cha +2,	Int +1				
+Tiefling (Variant):	Int +1,	Dex or Cha +2				
+Tiefling (Zariel):	Cha +2,	Str +1				
+Tortle:	Str +2,	Wis +1				
+Triton:	Str +1,	Con +1,	Cha +1			
+Vedalken:	Int +2,	Wis +1				
+Yuan-ti Pureblood:	Cha +2,	Int +1				

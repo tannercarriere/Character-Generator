@@ -1,0 +1,14 @@
+# all '#' at the start of a line signify a comment and will be ignored
+# {Class}: {Saving Throw 1}, {Saving Throw 2}: {Number of Proficient skills}, {Skills to choose from}
+Barbarian: Strength, Constitution: 2; Animal Handling, Athletics, Intimidation, Nature, Perception, Survival
+Bard:      Dexterity, Charisma: 3; Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation, Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival
+Cleric:    Wisdom, Charisma: 2; History, Insight, Medicine, Persuasion, Religion
+Druid:     Intelligence, Wisdom: 2; Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, Survival
+Fighter:   Strength, Constitution: 2; Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, Survival
+Monk:      Strength, Dexterity: 2; Acrobatics, Athletics, History, Insight, Religion, Stealth
+Paladin:   Wisdom, Charisma: 2; Athletics, Insight, Intimidation, Medicine, Persuasion, Religion
+Ranger:    Strength, Dexterity: 3; Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival
+Rogue:     Dexterity, Intelligence: 4; Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, Stealth.
+Sorcerer:  Constitution, Charisma: 2; Arcana, Deception, Insight, Intimidation, Persuasion, Religion
+Warlock:   Wisdom, Charisma: 2; Arcana, Deception, History, Intimidation, Investigation, Nature, Religion
+Wizard:    Intelligence, Wisdom: 2; Arcana, History, Insight, Investigation, Medicine, Religion

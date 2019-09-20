@@ -1,0 +1,37 @@
+# all '#' at the start of a line signify a comment and will be ignored
+# {Background Name} : {Proficiency bonus 1}, {Profeciency bonus 2}
+Acolyte: Insight, Religion
+Anthropologist: Insight, Religion
+Archaeologist: History, Survival
+# Azorius Functionary: Insight, Intimidation
+# Boros Legionnaire: Athletics, Intimidation
+Charlatan: Deception, Sleight of Hand
+Criminal: Deception, Stealth
+Criminal (Spy): Deception, Stealth
+Dimir Operative: Deception, Stealth
+Entertainer: Acrobatics, Performance
+Entertainer (Gladiator): Acrobatics, Performance
+Fisher: History, Survival
+Folk Hero: Animal Handling, Survival
+# Golgari Agent: Nature, Survival
+# Gruul Anarch: Animal Handling, Athletics
+# Guild Artisan: Insight, Persuasion
+# Guild Artisan (Guild Merchant): Insight, Persuasion
+Hermit: Medicine, Religion
+# House Agent: Investigation, Persuasion
+# Izzet Engineer: Arcana, Investigation
+Marine: Athletics, Survival
+Noble: History, Persuasion
+Noble (Knight): History, Persuasion
+# Orzhov Representative: Intimidation, Religion
+Outlander: Athletics, Survival
+# Rakdos Cultist: Acrobatics, Performance
+Sage: Arcana, History
+Sailor: Athletics, Perception
+Sailor (Pirate): Athletics, Perception
+# Selesnya Initiate: Nature, Persuasion
+Shipwright: History, Perception
+# Simic Scientist: Arcana, Medicine
+Smuggler: Athletics, Deception
+Soldier: Athletics, Intimidation 
+Urchin: Sleight of Hand, Stealth

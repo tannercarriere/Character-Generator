@@ -1,0 +1,20 @@
+Name: Nicolo
+Race: Simic Hybrid
+Class: Rogue
+lvl: 1
+Background: Soldier, background proficiencies: [Athletics, Intimidation]
+Saving Throws: [Dexterity, Intelligence]
+Proficiency Bonus: +2
+AC: 11
+Initiative: 1
+Str: 13
+Dex: 13
+Con: 17
+Int: 15
+Wis: 7
+Cha: 9
+Proficient Skills: 
+  Investigation
+  Stealth.
+  Insight
+  Sleight of Hand

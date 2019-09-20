@@ -1,0 +1,19 @@
+Name: Lyuk
+Race: Loxodon
+Class: Bard
+lvl: 1
+Background: Marine, background proficiencies: [Athletics, Survival]
+Saving Throws: [Dexterity, Charisma]
+Proficiency Bonus: +2
+AC: 11
+Initiative: 1
+Str: 16
+Dex: 13
+Con: 8
+Int: 18
+Wis: 14
+Cha: 14
+Proficient Skills: 
+  Sleight of Hand
+  Stealth
+  Acrobatics

@@ -1,0 +1,7 @@
+# all '#' at the start of a line signify a comment and will be ignored
+# File Path on saved characters
+Characters\
+# File path to icon
+icon.png
+# Max number of character sheets that can be generated at a given time
+100
