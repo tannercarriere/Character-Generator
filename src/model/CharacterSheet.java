@@ -146,7 +146,14 @@ public class CharacterSheet {
 	 * @return the background of the character
 	 */
 	public String getBackground() {
-		return background + ", background proficiencies: " + backgroundProficencies;
+		return "background"+background + ", background proficiencies: " + backgroundProficencies;
+	}
+	
+	/**
+	 * @return the background of the character
+	 */
+	public String getBackgroundJSON() {
+		return "{bg:\""+background + "\", backgroundProficiencies:" + backgroundProficencies +"}";
 	}
 	
 	/**
@@ -263,9 +270,23 @@ public class CharacterSheet {
 		}
 		return ret;
 	}
-
-
-
-
-
+	
+	public String toJSON() {
+		String ret = "{";
+		ret += "\"name\":\"" + getName() + "\"\n";
+		ret += "\"race\":\"" + getRace() + "\"\n";
+		ret += "\"class\":" + getCharClass() + "\"\n";
+		ret += "\"lvl\":" + getLevel() + "\n";
+		ret += "\"background\":" + getBackgroundJSON() + "\n";
+		ret += "\"savingThrows\":" + getSavingThrows() + "\n";
+		ret += "\"proficiencyBonus\":" + "2" + "\n";
+		ret += "\"ac\":" + getAC() + "\n";
+		ret += "\"initiative\":" + getInitative() + "\n";
+		for(int i = 0; i < STAT_NAMES.length; i++) {
+			ret += "\""+STAT_NAMES[i] + "\":" + stats.get(STAT_NAMES[i])+"\n";
+		}
+		ret += "\"proficientSkills\":"+proficiencientSkills;
+		ret += "\n}";
+		return ret;
+	}
 }
