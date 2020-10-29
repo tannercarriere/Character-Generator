@@ -1,4 +1,4 @@
-package dungeonsAndDragons;
+package view;
 
 /**
  * This a GUI wrapper for the GenDriver class.
@@ -9,6 +9,7 @@ package dungeonsAndDragons;
 import java.io.File;
 import java.util.Scanner;
 
+import controller.GenDriver;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;

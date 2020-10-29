@@ -1,4 +1,4 @@
-package dungeonsAndDragons;
+package model;
 /**
  *This is a character sheet object for the Table top role playing game Dungeons and Dragons. This
  * class holds all given values needed to create a character. 

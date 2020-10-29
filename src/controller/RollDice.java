@@ -1,4 +1,4 @@
-package dungeonsAndDragons;
+package controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,7 +20,7 @@ enum Dice{
 	}
 }
 public class RollDice {
-	private final int D6 = Dice.D6.sides();
+	private final int d6 = Dice.D6.sides();
 	
 	/**
 	 * Will roll a dice x times, x being defined by the user. As well as printing

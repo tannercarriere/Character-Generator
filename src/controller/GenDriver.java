@@ -1,4 +1,4 @@
-package dungeonsAndDragons;
+package controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +10,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+
+import model.CharacterSheet;
 
 public class GenDriver {
 	String filePath;
@@ -26,7 +28,7 @@ public class GenDriver {
 	GetInput input = new GetInput();
 	List<String> NAMES;
 	
-	GenDriver(String filePath, int amount){
+	public GenDriver(String filePath, int amount){
 		this.filePath = filePath;
 		for(int c = 0; c < amount-1; c++) {
 			create();

@@ -1,3 +1,9 @@
+# Refactor in Progress
+Things that need to be done.
+1. Follow MVC design pattern. 
+2. Change view to a web based application
+3. Serialize model classes. Ideally using json files in order to better support new view idea.
+
 ## D&D character generator
 This takes from several .txt files to create a random Dungeons and Dragons character. The 
 character will consist of a race, class, background, will be given a name, and have skills selected

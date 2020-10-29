@@ -1,4 +1,4 @@
-package dungeonsAndDragons;
+package controller;
 
 import java.util.Scanner;
 
