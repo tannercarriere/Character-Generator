@@ -80,6 +80,7 @@ public class GenDriver {
 		String[] modifiers;
 		String name;
 		int numChoices;
+		//TODO Make class object. Use object to make it more serializable.
 		while(fileIn.hasNextLine()) { // loop through whole file
 			lineString = fileIn.nextLine(); // turn the line into something we can use
 			if(lineString.charAt(0) != '#') { //ignore any line with a '#' as they are comments in file
@@ -100,7 +101,7 @@ public class GenDriver {
 				for(int i = 0; i < numChoices; i++) { // do this a number of times equal to the number of skills the class has
 					int index =rd.getRandBetween(0, skills.size()-1);
 					String skill = skills.remove(index); //pick a skill
-					classesSkills.get(key).add(skill.trim()); // add it to the skills
+					classesSkills.get(key).add("\""+skill.trim()+"\""); // add it to the skills
 				}
 			}
 			skills.clear();// wipe skills  for next class
@@ -168,7 +169,7 @@ public class GenDriver {
 				map.put(key, new ArrayList<String>());
 				for(int i = 0; i < modifiers.length; i++) {
 					name = modifiers[i];
-					map.get(key).add(name.trim());
+					map.get(key).add("\""+name.trim()+"\"");
 				}
 			}
 		}
@@ -378,7 +379,7 @@ public class GenDriver {
 		if(sheet.createNewFile()) {
 			System.out.println("Creating character sheet...");
 			PrintWriter pw = new PrintWriter(sheet);
-			pw.println(playerCharacter);
+			pw.println(playerCharacter.toJSON());
 			pw.close();
 		}else {
 			System.out.println("A character of that name already exsists, please input a different name");
