@@ -113,6 +113,10 @@ public class CharacterSheet {
 		return charClass.toString();
 	}
 	
+	public String getCharJSON() {
+		return charClass.toJSON();
+	}
+	
 	/**
 	 * @return the list of saving throws
 	 */
@@ -269,7 +273,7 @@ public class CharacterSheet {
 		String ret = "{";
 		ret += "\"name\":\"" + getName() + "\"\n";
 		ret += "\"race\":\"" + getRace() + "\"\n";
-		ret += "\"class\":" + getCharClass() + "\"\n";
+		ret += "\"class\":" + getCharJSON() + "\"\n";
 		ret += "\"lvl\":" + getLevel() + "\n";
 		ret += "\"background\":" + getBackgroundJSON() + "\n";
 		ret += "\"savingThrows\":" + getSavingThrows() + "\n";
