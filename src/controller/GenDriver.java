@@ -27,6 +27,12 @@ public class GenDriver {
 	static RollDice rd = new RollDice();
 	GetInput input = new GetInput();
 	static List<String> NAMES;
+	private static Map<String, HashMap<String, Integer>> races = new HashMap<String, HashMap<String,Integer>>();
+	private static List<CharClass> classes = new LinkedList<>();
+	private static Map<String, ArrayList<String>> backgrounds = new HashMap<String, ArrayList<String>>();
+	private static Map<String, Integer> names = new HashMap<String, Integer>();
+	private static Map<String, String> skills = new HashMap<String, String>();
+	private static boolean instanced = false;
 	
 	/**
 	 * create
@@ -34,18 +40,16 @@ public class GenDriver {
 	 * the maps and lists. As well as calling all methods need to use the stored info.
 	 */
 	public static void create() {
-		Map<String, HashMap<String, Integer>> races = new HashMap<String, HashMap<String,Integer>>();
-		List<CharClass> classes = new LinkedList<>();
-		Map<String, ArrayList<String>> backgrounds = new HashMap<String, ArrayList<String>>();
-		Map<String, Integer> names = new HashMap<String, Integer>();
-		Map<String, String> skills = new HashMap<String, String>();
-
+		if(!instanced) {
+			racesInit(races);
+			classInit(classes);
+			backgroundInit(backgrounds);
+			skillsInit(skills);
+			namesInit(names);
+			instanced = true;
+		}
+		
 		CharacterSheet playerCharacter = new CharacterSheet();
-		racesInit(races);
-		classInit(classes);
-		backgroundInit(backgrounds);
-		skillsInit(skills);
-		namesInit(names);
 		
 		rollStats(playerCharacter);
 		pickName(playerCharacter, names);
@@ -102,7 +106,6 @@ public class GenDriver {
 				}
 				c = new CharClass(className, numProficiencies, savingThrowNames, proficiencies);
 				classes.add(c);
-				System.out.println(c);
 			}
 			skills.clear();// wipe skills for next class
 		}
