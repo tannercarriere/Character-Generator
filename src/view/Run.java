@@ -55,8 +55,7 @@ public class Run extends Application{
 		create.setOnAction((e) ->{
 			String filePath = superFilePath;
 			int amount = numToCreate.getValue();
-			GenDriver gen = new GenDriver(filePath, amount);
-			gen.create();
+			GenDriver.create();
 		});
 		
 		primaryStage.setScene(display);
