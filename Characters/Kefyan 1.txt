@@ -1,0 +1,17 @@
+{"name":"Kefyan"
+"race":"Elf (Wood)"
+"class":name: [Wisdom,  Charisma] [Intimidation, Religion]"
+"lvl":1
+"background":{bg:"Hermit", backgroundProficiencies:["Medicine", "Religion"]}
+"savingThrows":null
+"proficiencyBonus":2
+"ac":12
+"initiative":2
+"Str":8
+"Dex":15
+"Con":11
+"Int":10
+"Wis":18
+"Cha":9
+"proficientSkills":null
+}

@@ -1,0 +1,17 @@
+{"name":"Kayla"
+"race":"Centaur"
+"class":name: [Intelligence,  Wisdom] [History, Insight]"
+"lvl":1
+"background":{bg:"Entertainer (Gladiator)", backgroundProficiencies:["Acrobatics", "Performance"]}
+"savingThrows":null
+"proficiencyBonus":2
+"ac":12
+"initiative":2
+"Str":13
+"Dex":14
+"Con":9
+"Int":9
+"Wis":11
+"Cha":8
+"proficientSkills":null
+}

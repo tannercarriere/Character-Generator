@@ -1,0 +1,17 @@
+{"name":"Lucan"
+"race":"Half-Elf (Moon Elf or Sun Elf Descent)"
+"class":name: [Intelligence,  Wisdom] [Animal Handling, Arcana]"
+"lvl":1
+"background":{bg:"Entertainer", backgroundProficiencies:["Acrobatics", "Performance"]}
+"savingThrows":null
+"proficiencyBonus":2
+"ac":11
+"initiative":1
+"Str":18
+"Dex":13
+"Con":15
+"Int":13
+"Wis":14
+"Cha":15
+"proficientSkills":null
+}

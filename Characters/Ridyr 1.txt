@@ -1,0 +1,17 @@
+{"name":"Ridyr"
+"race":"Halfling (Lightfoot)"
+"class":name: [Dexterity,  Charisma] [Arcana, Performance, Survival]"
+"lvl":1
+"background":{bg:"Criminal", backgroundProficiencies:["Deception", "Stealth"]}
+"savingThrows":null
+"proficiencyBonus":2
+"ac":11
+"initiative":1
+"Str":7
+"Dex":12
+"Con":12
+"Int":8
+"Wis":13
+"Cha":12
+"proficientSkills":null
+}

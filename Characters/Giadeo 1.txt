@@ -1,0 +1,17 @@
+{"name":"Giadeo"
+"race":"Tiefling (Mephistopheles)"
+"class":name: [Dexterity,  Intelligence] [Acrobatics, Intimidation, Athletics, Insight]"
+"lvl":1
+"background":{bg:"Outlander", backgroundProficiencies:["Athletics", "Survival"]}
+"savingThrows":null
+"proficiencyBonus":2
+"ac":9
+"initiative":-1
+"Str":17
+"Dex":9
+"Con":11
+"Int":13
+"Wis":13
+"Cha":13
+"proficientSkills":null
+}
