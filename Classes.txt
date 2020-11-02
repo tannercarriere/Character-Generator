@@ -1,5 +1,5 @@
 # all '#' at the start of a line signify a comment and will be ignored
-# {Class}: {Saving Throw 1}, {Saving Throw 2}: {Number of Proficient skills}, {Skills to choose from}
+# {Class}: {Saving Throw 1}, {Saving Throw 2}: {Number of Proficient skills}; {Skills to choose from}
 Barbarian: Strength, Constitution: 2; Animal Handling, Athletics, Intimidation, Nature, Perception, Survival
 Bard:      Dexterity, Charisma: 3; Acrobatics, Animal Handling, Arcana, Athletics, Deception, History, Insight, Intimidation, Investigation, Medicine, Nature, Perception, Performance, Persuasion, Religion, Sleight of Hand, Stealth, Survival
 Cleric:    Wisdom, Charisma: 2; History, Insight, Medicine, Persuasion, Religion
