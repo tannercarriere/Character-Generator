@@ -94,7 +94,16 @@ public class GenDriver {
 				proficienciesNames = line[2].trim().split(";");
 				numProficiencies = Integer.parseInt(proficienciesNames[0]); // number of choices we have for skills
 				proficiencies = new String[numProficiencies];
+				
+				/*
+				 * Turn the array into an ArrayList so that we can remove from it.
+				 * 
+				 * Could in theory be more efficient by doing a swap of the selected element
+				 * and last element and narrowing the search area by one. However that's complicated
+				 * and the program isn't time critical.
+				 */
 				Collections.addAll(skills, proficienciesNames[1].trim().split(",")); // turn array into ArrayList
+				
 				for(int i = 0; i < numProficiencies; i++) { // do this a number of times equal to the number of skills the class has
 					int index = rd.getRandBetween(0, skills.size()-1);
 					proficiencies[i] = skills.remove(index).trim(); //pick a skill
