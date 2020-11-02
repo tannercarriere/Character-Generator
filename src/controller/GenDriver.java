@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+import model.CharClass;
 import model.CharacterSheet;
 
 public class GenDriver {
@@ -42,15 +43,14 @@ public class GenDriver {
 	 */
 	public void create() {
 		Map<String, HashMap<String, Integer>> races = new HashMap<String, HashMap<String,Integer>>();
-		Map<String, ArrayList<String>> classesSave = new HashMap<String, ArrayList<String>>();
-		Map<String, ArrayList<String>> classesSkills= new HashMap<String, ArrayList<String>>();
+		List<CharClass> classes = new LinkedList<>();
 		Map<String, ArrayList<String>> backgrounds = new HashMap<String, ArrayList<String>>();
 		Map<String, Integer> names = new HashMap<String, Integer>();
 		Map<String, String> skills = new HashMap<String, String>();
 
 		CharacterSheet playerCharacter = new CharacterSheet();
 		racesInit(races);
-		classInit(classesSave, classesSkills);
+		classInit(classes);
 		backgroundInit(backgrounds);
 		skillsInit(skills);
 		namesInit(names);
@@ -58,7 +58,7 @@ public class GenDriver {
 		rollStats(playerCharacter);
 		pickName(playerCharacter, names);
 		pickRace(playerCharacter, races);
-		pickClassOptions(playerCharacter, classesSave, classesSkills);
+		pickClassOptions(playerCharacter, classes);
 		pickPlayerOptions(playerCharacter, backgrounds);
 		
 		try {
@@ -71,39 +71,37 @@ public class GenDriver {
 		
 	}
 
-	private void classInit(Map<String, ArrayList<String>> classes, Map<String, ArrayList<String>> classesSkills) {
+	private void classInit(List<CharClass> classes) {
 		Scanner fileIn = openFileAsScanner(CLASSES_FILE);
 		List<String> skills = new ArrayList<String>();
 		String lineString;
 		String[] line;
-		String key;
+		String className;
 		String[] savingThrowNames;
-		String name;
-		int numChoices;
+		String[] proficienciesNames;
+		String[] proficiencies;
+		CharClass c;
+		int numProficiencies;
 		//TODO Make CharClass object. Use object to make it more serializable.
 		while(fileIn.hasNextLine()) { // loop through whole file
 			lineString = fileIn.nextLine(); // turn the line into something we can use
 			if(lineString.charAt(0) != '#') { //ignore any line with a '#' as they are comments in file
 				line = lineString.split(":"); 
-				key = line[0]; //grab name of class
+				
+				className = line[0]; //grab name of class
 				savingThrowNames = line[1].trim().split(","); //grab names of the saving throws
-				classes.put(key, new ArrayList<String>());
-				classesSkills.put(key, new ArrayList<String>());
 				
-				for(int i = 0; i < savingThrowNames.length; i++) { // add the savingThrowNames to the class map
-					name = savingThrowNames[i];
-					classes.get(key).add(name.trim());
-					System.out.println(classes);
+				proficienciesNames = line[2].trim().split(";");
+				numProficiencies = Integer.parseInt(proficienciesNames[0]); // number of choices we have for skills
+				proficiencies = new String[numProficiencies];
+				Collections.addAll(skills, proficienciesNames[1].trim().split(",")); // turn array into ArrayList
+				for(int i = 0; i < numProficiencies; i++) { // do this a number of times equal to the number of skills the class has
+					int index = rd.getRandBetween(0, skills.size()-1);
+					proficiencies[i] = skills.remove(index).trim(); //pick a skill
 				}
-				
-				savingThrowNames = line[2].trim().split(";");
-				numChoices = Integer.parseInt(savingThrowNames[0]); // number of choices we have for skills
-				Collections.addAll(skills, savingThrowNames[1].trim().split(",")); // turn array into ArrayList
-				for(int i = 0; i < numChoices; i++) { // do this a number of times equal to the number of skills the class has
-					int index =rd.getRandBetween(0, skills.size()-1);
-					String skill = skills.remove(index); //pick a skill
-					classesSkills.get(key).add("\""+skill.trim()+"\""); // add it to the skills
-				}
+				c = new CharClass(className, numProficiencies, savingThrowNames, proficiencies);
+				classes.add(c);
+				System.out.println(c);
 			}
 			skills.clear();// wipe skills for next class
 		}
@@ -262,16 +260,12 @@ public class GenDriver {
 	 * 
 	 * @param classesSkills 
 	 */
-	private void pickClassOptions(CharacterSheet playerCharacter, 
-			Map<String, ArrayList<String>> options, Map<String, ArrayList<String>> classesSkills) {
-		int optVal = rd.getRandBetween(0,options.size()-1);
-		String selectedOption = "";
+	private void pickClassOptions(CharacterSheet playerCharacter,  List<CharClass> classes) {
+		int optVal = rd.getRandBetween(0,classes.size()-1);
 		int i = 0;
-		for(String s: options.keySet()) {
+		for(CharClass c: classes) {
 			if(i == optVal) {
-				selectedOption = s;
-				playerCharacter.setClass(selectedOption, options.get(selectedOption));
-				playerCharacter.setSkills(classesSkills.get(s));
+				playerCharacter.setClass(c);
 				return;
 			}
 			i++;

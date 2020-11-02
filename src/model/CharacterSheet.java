@@ -6,6 +6,8 @@ package model;
  * By: Tanner Carriere
  */
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -37,11 +39,11 @@ public class CharacterSheet {
 	private final int NUM_STATS = 6; //total number of stats a character can have
 	private final Stats[] STAT_NAMES = Stats.values(); //an array of all the enum names
 	private Map<Stats, Integer> stats = new HashMap<Stats, Integer>(); //a map of stat names and their scores
-	private List<String> savingThrows;//a list of all the saving throws the character is proficient in.
+	private String[] savingThrows;//a list of all the saving throws the character is proficient in.
 	private List<String> backgroundProficencies;//a list of skills the character is proficient in given their background
 	private String name;//character's name
 	private String race;//character's race
-	private String charClass;//character's class
+	private CharClass charClass;//character's class
 	private int lvl = 1;//starting level for all characters
 	private String background;//character's background
 	private List<String> proficiencientSkills;//list of skills the character is proficient in
@@ -108,14 +110,14 @@ public class CharacterSheet {
 	 * @return the characters class
 	 */
 	public String getCharClass() {
-		return charClass;
+		return charClass.toString();
 	}
 	
 	/**
 	 * @return the list of saving throws
 	 */
 	public String getSavingThrows() {
-		return savingThrows.toString();
+		return Arrays.toString(savingThrows);
 	}
 	
 	/**
@@ -197,16 +199,8 @@ public class CharacterSheet {
 	 * 
 	 * @param savingThrows is a list of associated saving throws to the given class
 	 */
-	public void setClass(String charClass, ArrayList<String> savingThrows) {
+	public void setClass(CharClass charClass) {
 		this.charClass = charClass;
-		setSavingThrows(savingThrows);
-	}
-	
-	/**
-	 * @param savingThrows is a list of associated saving throws to a given class
-	 */
-	private void setSavingThrows(ArrayList<String> savingThrows) {
-		this.savingThrows = new ArrayList<String>(savingThrows);
 	}
 	
 	/**
