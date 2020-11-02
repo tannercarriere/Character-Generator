@@ -37,7 +37,6 @@ public class Run extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		GridPane entryHolder = new GridPane();
 		Scene display = new Scene(entryHolder, WIDTH, HEIGHT);
-		String superFilePath;
 		Label comboBoxName = new Label("How many characters would you like to create?");
 		Button create = new Button("Create");
 		ComboBox<Integer> numToCreate = new ComboBox<Integer>();
@@ -45,9 +44,7 @@ public class Run extends Application{
 		
 
 		setUpGrid(comboBoxName, numToCreate, create, entryHolder);
-		superFilePath = next(configFile);
 		setStage(primaryStage, configFile);
-		MAX = Integer.parseInt(next(configFile));
 		setUpComboBox(numToCreate);
 		
 		entryHolder.getChildren().addAll(comboBoxName, numToCreate, create);
