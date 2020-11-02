@@ -3,7 +3,6 @@ package model;
 import java.util.Arrays;
 
 public class CharClass {
-	private final int NUM_SAVING_THROWS = 2;
 	private String name;
 	private int numProficiencies;
 	private String[] savingThrows;
