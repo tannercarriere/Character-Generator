@@ -53,9 +53,11 @@ public class Run extends Application{
 		entryHolder.getChildren().addAll(comboBoxName, numToCreate, create);
 		
 		create.setOnAction((e) ->{
-			String filePath = superFilePath;
 			int amount = numToCreate.getValue();
-			GenDriver.create();
+			while(amount > 0) {
+				GenDriver.create();
+				amount--;
+			}
 		});
 		
 		primaryStage.setScene(display);
