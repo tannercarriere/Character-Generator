@@ -77,34 +77,35 @@ public class GenDriver {
 		String lineString;
 		String[] line;
 		String key;
-		String[] modifiers;
+		String[] savingThrowNames;
 		String name;
 		int numChoices;
-		//TODO Make class object. Use object to make it more serializable.
+		//TODO Make CharClass object. Use object to make it more serializable.
 		while(fileIn.hasNextLine()) { // loop through whole file
 			lineString = fileIn.nextLine(); // turn the line into something we can use
 			if(lineString.charAt(0) != '#') { //ignore any line with a '#' as they are comments in file
 				line = lineString.split(":"); 
 				key = line[0]; //grab name of class
-				modifiers = line[1].trim().split(","); //grab stat modifiers
+				savingThrowNames = line[1].trim().split(","); //grab names of the saving throws
 				classes.put(key, new ArrayList<String>());
 				classesSkills.put(key, new ArrayList<String>());
 				
-				for(int i = 0; i < modifiers.length; i++) { // add the modifiers to the class map
-					name = modifiers[i];
+				for(int i = 0; i < savingThrowNames.length; i++) { // add the savingThrowNames to the class map
+					name = savingThrowNames[i];
 					classes.get(key).add(name.trim());
+					System.out.println(classes);
 				}
 				
-				modifiers = line[2].trim().split(";");
-				numChoices = Integer.parseInt(modifiers[0]); // number of choices we have for skills
-				Collections.addAll(skills, modifiers[1].trim().split(",")); // turn array into ArrayList
+				savingThrowNames = line[2].trim().split(";");
+				numChoices = Integer.parseInt(savingThrowNames[0]); // number of choices we have for skills
+				Collections.addAll(skills, savingThrowNames[1].trim().split(",")); // turn array into ArrayList
 				for(int i = 0; i < numChoices; i++) { // do this a number of times equal to the number of skills the class has
 					int index =rd.getRandBetween(0, skills.size()-1);
 					String skill = skills.remove(index); //pick a skill
 					classesSkills.get(key).add("\""+skill.trim()+"\""); // add it to the skills
 				}
 			}
-			skills.clear();// wipe skills  for next class
+			skills.clear();// wipe skills for next class
 		}
 		fileIn.close();
 	}
