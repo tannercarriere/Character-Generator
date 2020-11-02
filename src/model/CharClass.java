@@ -51,4 +51,8 @@ public class CharClass {
 	public String toString() {
 		return name + " " + Arrays.toString(savingThrows) + " " + Arrays.toString(proficiencies);
 	}
+	
+	public String toJSON() {
+		return "name: " + Arrays.toString(savingThrows) + " " + Arrays.toString(proficiencies);
+	}
 }
