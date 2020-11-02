@@ -1,5 +1,5 @@
 # Storage for test files
-/Characters
+./Characters/*.txt
 
 # Compiled class file
 *.class
