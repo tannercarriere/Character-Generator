@@ -15,14 +15,13 @@ import model.CharClass;
 import model.CharacterSheet;
 
 public class GenDriver {
-	static String filePath;
+	final static String filePath = "./Characters/";
 	int amount;
 	final static String NAMES_FILE = "Names.txt";
 	final static String RACES_FILE = "Races.txt";
 	final static String CLASSES_FILE = "Classes.txt";
 	final static String BACKGROUNDS_FILE = "Backgrounds.txt";
 	final static String SKILLS_FILE = "Skills.txt";
-	final static String DEBUG_PATH = "C:\\Users\\Tanner\\Documents\\D&D\\Prog Sheets\\";
 	final int CLASS = 0;
 	final int BACKGROUND = 1;
 	static RollDice rd = new RollDice();
