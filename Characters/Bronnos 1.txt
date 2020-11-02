@@ -1,0 +1,17 @@
+{"name":"Bronnos"
+"race":"Tiefling (Fierna)"
+"class":Fighter"
+"lvl":1
+"background":{bg:"Entertainer (Gladiator)", backgroundProficiencies:["Acrobatics", "Performance"]}
+"savingThrows":[Strength, Constitution]
+"proficiencyBonus":2
+"ac":12
+"initiative":2
+"Str":9
+"Dex":14
+"Con":15
+"Int":16
+"Wis":12
+"Cha":16
+"proficientSkills":["Insight", "Perception"]
+}

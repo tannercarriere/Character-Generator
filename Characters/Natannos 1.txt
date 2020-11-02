@@ -1,0 +1,17 @@
+{"name":"Natannos"
+"race":"Kobold"
+"class":Bard [Dexterity,  Charisma] [Nature, Animal Handling, Intimidation]"
+"lvl":1
+"background":{bg:"Noble", backgroundProficiencies:["History", "Persuasion"]}
+"savingThrows":null
+"proficiencyBonus":2
+"ac":12
+"initiative":2
+"Str":5
+"Dex":14
+"Con":12
+"Int":14
+"Wis":9
+"Cha":11
+"proficientSkills":null
+}

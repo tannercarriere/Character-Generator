@@ -1,0 +1,17 @@
+{"name":"Nicola"
+"race":"Half-Elf"
+"class":Druid"
+"lvl":1
+"background":{bg:"Criminal", backgroundProficiencies:["Deception", "Stealth"]}
+"savingThrows":[Intelligence, Wisdom]
+"proficiencyBonus":2
+"ac":11
+"initiative":1
+"Str":16
+"Dex":13
+"Con":11
+"Int":15
+"Wis":10
+"Cha":13
+"proficientSkills":["Religion", "Perception"]
+}
