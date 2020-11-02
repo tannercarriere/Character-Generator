@@ -15,33 +15,26 @@ import model.CharClass;
 import model.CharacterSheet;
 
 public class GenDriver {
-	String filePath;
+	static String filePath;
 	int amount;
-	final String NAMES_FILE = "Names.txt";
-	final String RACES_FILE = "Races.txt";
-	final String CLASSES_FILE = "Classes.txt";
-	final String BACKGROUNDS_FILE = "Backgrounds.txt";
-	final String SKILLS_FILE = "Skills.txt";
+	final static String NAMES_FILE = "Names.txt";
+	final static String RACES_FILE = "Races.txt";
+	final static String CLASSES_FILE = "Classes.txt";
+	final static String BACKGROUNDS_FILE = "Backgrounds.txt";
+	final static String SKILLS_FILE = "Skills.txt";
 	final static String DEBUG_PATH = "C:\\Users\\Tanner\\Documents\\D&D\\Prog Sheets\\";
 	final int CLASS = 0;
 	final int BACKGROUND = 1;
-	RollDice rd = new RollDice();
+	static RollDice rd = new RollDice();
 	GetInput input = new GetInput();
-	List<String> NAMES;
-	
-	public GenDriver(String filePath, int amount){
-		this.filePath = filePath;
-		for(int c = 0; c < amount-1; c++) {
-			create();
-		}
-	}
+	static List<String> NAMES;
 	
 	/**
 	 * create
 	 * This is effectively the main() of the program, it calls all the needed things populate
 	 * the maps and lists. As well as calling all methods need to use the stored info.
 	 */
-	public void create() {
+	public static void create() {
 		Map<String, HashMap<String, Integer>> races = new HashMap<String, HashMap<String,Integer>>();
 		List<CharClass> classes = new LinkedList<>();
 		Map<String, ArrayList<String>> backgrounds = new HashMap<String, ArrayList<String>>();
@@ -71,7 +64,7 @@ public class GenDriver {
 		
 	}
 
-	private void classInit(List<CharClass> classes) {
+	private static void classInit(List<CharClass> classes) {
 		Scanner fileIn = openFileAsScanner(CLASSES_FILE);
 		List<String> skills = new ArrayList<String>();
 		String lineString;
@@ -82,7 +75,7 @@ public class GenDriver {
 		String[] proficiencies;
 		CharClass c;
 		int numProficiencies;
-		//TODO Make CharClass object. Use object to make it more serializable.
+		
 		while(fileIn.hasNextLine()) { // loop through whole file
 			lineString = fileIn.nextLine(); // turn the line into something we can use
 			if(lineString.charAt(0) != '#') { //ignore any line with a '#' as they are comments in file
@@ -105,7 +98,7 @@ public class GenDriver {
 				Collections.addAll(skills, proficienciesNames[1].trim().split(",")); // turn array into ArrayList
 				
 				for(int i = 0; i < numProficiencies; i++) { // do this a number of times equal to the number of skills the class has
-					int index = rd.getRandBetween(0, skills.size()-1);
+					int index = RollDice.getRandBetween(0, skills.size()-1);
 					proficiencies[i] = skills.remove(index).trim(); //pick a skill
 				}
 				c = new CharClass(className, numProficiencies, savingThrowNames, proficiencies);
@@ -117,7 +110,7 @@ public class GenDriver {
 		fileIn.close();
 	}
 
-	private void skillsInit(Map<String, String> skills) {
+	private static void skillsInit(Map<String, String> skills) {
 		Scanner fileIn = openFileAsScanner(SKILLS_FILE);
 		String line;
 		String[] temp;
@@ -139,7 +132,7 @@ public class GenDriver {
 	 * 
 	 * @param names names is the HashMap we want to store the names and their appearances in.
 	 */
-	private void namesInit(Map<String, Integer> names) {
+	private static void namesInit(Map<String, Integer> names) {
 		Scanner fileIn = openFileAsScanner(NAMES_FILE);
 		String line;
 		while(fileIn.hasNextLine()) {
@@ -161,7 +154,7 @@ public class GenDriver {
 	 * 
 	 * @param fileName fileName is the name of the file we want to store
 	 */
-	private void backgroundInit(Map<String, ArrayList<String>> map) {
+	private static void backgroundInit(Map<String, ArrayList<String>> map) {
 		Scanner fileIn = openFileAsScanner(BACKGROUNDS_FILE);
 		String lineString;
 		String[] line;
@@ -192,7 +185,7 @@ public class GenDriver {
 	 * 
 	 * @param races races is the HashMap we want to store the info in.
 	 */
-	private void racesInit(Map<String, HashMap<String, Integer>> races) {
+	private static void racesInit(Map<String, HashMap<String, Integer>> races) {
 		Scanner fileIn = openFileAsScanner(RACES_FILE);
 		String lineString;
 		String[] line;
@@ -214,7 +207,7 @@ public class GenDriver {
 					hold = modifiers[i].split(" ");
 					if(hold[1].equals("or")) { //some classes have a choice of either or of two stats
 											   //this is in that cases
-						int val = rd.getRandBetween(-1, 1);
+						int val = RollDice.getRandBetween(-1, 1);
 						if(val == 0) {
 							name = hold[0];
 						}else {
@@ -242,9 +235,9 @@ public class GenDriver {
 	 * 
 	 * @param options is the HashMap of options we're choosing from
 	 */
-	private void pickPlayerOptions(CharacterSheet playerCharacter, 
+	private static void pickPlayerOptions(CharacterSheet playerCharacter, 
 			Map<String, ArrayList<String>> options) {
-		int optVal = rd.getRandBetween(0,options.size()-1);
+		int optVal = RollDice.getRandBetween(0,options.size()-1);
 		String selectedOption = "";
 		int i = 0;
 		for(String s: options.keySet()) {
@@ -269,8 +262,8 @@ public class GenDriver {
 	 * 
 	 * @param classesSkills 
 	 */
-	private void pickClassOptions(CharacterSheet playerCharacter,  List<CharClass> classes) {
-		int optVal = rd.getRandBetween(0,classes.size()-1);
+	private static void pickClassOptions(CharacterSheet playerCharacter,  List<CharClass> classes) {
+		int optVal = RollDice.getRandBetween(0,classes.size()-1);
 		int i = 0;
 		for(CharClass c: classes) {
 			if(i == optVal) {
@@ -290,8 +283,8 @@ public class GenDriver {
 	 * 
 	 * @param names names is a HashMap of names and their number of appearances 
 	 */
-	private void pickName(CharacterSheet playerCharacter, Map<String, Integer> names) {
-		int namePos = rd.getRandBetween(0, NAMES.size()-1);
+	private static void pickName(CharacterSheet playerCharacter, Map<String, Integer> names) {
+		int namePos = RollDice.getRandBetween(0, NAMES.size()-1);
 		String name = NAMES.get(namePos);
 		names.replace(name, 1+names.get(name));
 		playerCharacter.setName(name);
@@ -307,8 +300,8 @@ public class GenDriver {
 	 * 
 	 * @param races is the HashMap that contains all the race names and any modifiers they have
 	 */
-	private void pickRace(CharacterSheet playerCharacter, Map<String, HashMap<String, Integer>> races) {
-		int raceVal = rd.getRandBetween(0, races.size()-1); //selects the index of the race
+	private static void pickRace(CharacterSheet playerCharacter, Map<String, HashMap<String, Integer>> races) {
+		int raceVal = RollDice.getRandBetween(0, races.size()-1); //selects the index of the race
 		String race = "";
 		int i = 0;
 		for(String s: races.keySet()) { //loops through keys to find the given index
@@ -332,7 +325,7 @@ public class GenDriver {
      * @return returns the opened file, should always return a file or exit the
      *         program
      */
-    private Scanner openFileAsScanner(String fName) {
+    private static Scanner openFileAsScanner(String fName) {
         try {
             Scanner file = new Scanner(new File(fName));
             return file;
@@ -352,7 +345,7 @@ public class GenDriver {
 	 * @param player 
 	 * 			is a CharacterSheet object that holds the stats
 	 */
-	public void rollStats(CharacterSheet player) {
+	public static void rollStats(CharacterSheet player) {
 		List<Integer> stats = new LinkedList<Integer>();
 		
 		for(int i = 0; i < player.getNumStats();i++) {
@@ -376,7 +369,7 @@ public class GenDriver {
 	 * 
 	 * @throws IOException 
 	 */
-	public void writeSheet(CharacterSheet playerCharacter, Map<String, Integer> names) throws IOException {
+	public static void writeSheet(CharacterSheet playerCharacter, Map<String, Integer> names) throws IOException {
 		String charName = playerCharacter.getName();
 		String fileName = charName + " " +names.get(charName);
 		File sheet = new File(filePath+ fileName +".txt");

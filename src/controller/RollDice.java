@@ -4,39 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-enum Dice{
-	D4,D6,D8,D10,D12,D20,D100;
-	
-	/**
-	 * Gets the number of sides a given dice has. As all dice names start with a "D" followed
-	 * by an integer value we can just substring the value after the "D" and find the number
-	 * of sides.
-	 * 
-	 * @return sides is the number of sides a given dice has.
-	 */
-	public int sides() {
-		int sides = Integer.parseInt(this.toString().substring(1));
-		return sides;
-	}
-}
 public class RollDice {
-	private final int d6 = Dice.D6.sides();
-	
-	/**
-	 * Will roll a dice x times, x being defined by the user. As well as printing
-	 * each roll to the console.
-	 * 
-	 * @param dice is the type of dice we're rolling
-	 * 
-	 * @param input is an object that gets an integer from the user
-	 */
-	public void rollX(Dice dice, GetInput input) {
-		int num = input.getInteger("How many times would you like to roll the dice?");
-		for(int i = 0;i<num;i++) {
-			System.out.println(rollDice(dice));
-		}
-	}
-	
+	//support for legacy code that used enum
+	private final int D6 = 6;
 	//Overloaded method for when dice rolling is done by the program rather than the user
 	/**
 	 * Will roll a dice x times, and adds up the total rolls.
@@ -47,7 +17,7 @@ public class RollDice {
 	 * 
 	 * @return results is the final number we get from rolling the dice
 	 */
-	public int rollX(Dice dice, int x) {
+	public static int rollX(int dice, int x) {
 		int results = 0;
 		for(int i = 0;i<x;i++) {
 			results+= rollDice(dice);
@@ -66,7 +36,7 @@ public class RollDice {
 		List<Integer> stat = new ArrayList<Integer>();
 		int ret = 0;
 		for(int i = 0; i < 4; i++) {
-			stat.add(rollDice(Dice.D6));
+			stat.add(rollDice(D6));
 		}
 		stat.remove(stat.indexOf(Collections.min(stat)));
 		for(int i : stat) {
@@ -82,9 +52,9 @@ public class RollDice {
 	 * 
 	 * @return is the value rolled by the dice
 	 */
-	public int rollDice(Dice dice) {
+	public static int rollDice(int dice) {
 		//String dice=diceName.toUpperCase();
-		return getRandBetween(1, dice.sides());
+		return getRandBetween(1, dice);
 	}
 	
 	/**
@@ -96,7 +66,7 @@ public class RollDice {
 	 * 
 	 * @return is the value we found
 	 */
-	public int getRandBetween(int low, int high) {
+	public static int getRandBetween(int low, int high) {
 		return (int)((Math.random() * ((high + 1) - low)) + low);
 	}
 
