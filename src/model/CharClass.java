@@ -52,7 +52,6 @@ public class CharClass {
 	}
 	
 	public String toJSON() {
-
 		return "\"" + name + "\"";
 	}
 
