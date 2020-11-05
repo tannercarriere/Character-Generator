@@ -58,7 +58,7 @@ public class GenDriver {
 		pickPlayerOptions(playerCharacter, backgrounds);
 		
 		try {
-			writeSheet(playerCharacter, names);
+			writeSheetJSON(playerCharacter, names);
 		}catch(IOException e) {
 			System.out.println("Something went wrong, ending the program.");
 			e.printStackTrace();
@@ -85,10 +85,9 @@ public class GenDriver {
 				line = lineString.split(":"); 
 				
 				className = line[0]; //grab name of class
-				savingThrowNames = line[1].trim().split(","); //grab names of the saving throws
-				
-				proficienciesNames = line[2].trim().split(";");
-				numProficiencies = Integer.parseInt(proficienciesNames[0]); // number of choices we have for skills
+				savingThrowNames = line[1].split(","); //grab names of the saving throws
+				proficienciesNames = line[2].split(";");
+				numProficiencies = Integer.parseInt(proficienciesNames[0].trim()); // number of choices we have for skills
 				proficiencies = new String[numProficiencies];
 				
 				/*
@@ -99,9 +98,8 @@ public class GenDriver {
 				 * and the program isn't time critical.
 				 */
 				Collections.addAll(skills, proficienciesNames[1].trim().split(",")); // turn array into ArrayList
-				
-				for(int i = 0; i < numProficiencies; i++) { // do this a number of times equal to the number of skills the class has
-					int index = RollDice.getRandBetween(0, skills.size()-1);
+				for(int i = 0; i < proficiencies.length; i++) { // do this a number of times equal to the number of skills the class has
+					int index = RollDice.getRandBetween(0, skills.size()-2);
 					proficiencies[i] = skills.remove(index).trim(); //pick a skill
 				}
 				c = new CharClass(className, numProficiencies, savingThrowNames, proficiencies);
@@ -375,6 +373,20 @@ public class GenDriver {
 		String charName = playerCharacter.getName();
 		String fileName = charName + " " +names.get(charName);
 		File sheet = new File(filePath+ fileName +".txt");
+		if(sheet.createNewFile()) {
+			System.out.println("Creating character sheet...");
+			PrintWriter pw = new PrintWriter(sheet);
+			pw.println(playerCharacter.toJSON());
+			pw.close();
+		}else {
+			System.out.println("A character of that name already exsists, please input a different name");
+		}
+	}
+	
+	public static void writeSheetJSON(CharacterSheet playerCharacter, Map<String, Integer> names) throws IOException {
+		String charName = playerCharacter.getName();
+		String fileName = charName + " " +names.get(charName);
+		File sheet = new File(filePath+ fileName +".JSON");
 		if(sheet.createNewFile()) {
 			System.out.println("Creating character sheet...");
 			PrintWriter pw = new PrintWriter(sheet);

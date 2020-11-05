@@ -6,7 +6,6 @@ package model;
  * By: Tanner Carriere
  */
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -38,14 +37,12 @@ public class CharacterSheet {
 	private final int NUM_STATS = 6; //total number of stats a character can have
 	private final Stats[] STAT_NAMES = Stats.values(); //an array of all the enum names
 	private Map<Stats, Integer> stats = new HashMap<Stats, Integer>(); //a map of stat names and their scores
-	private String[] savingThrows;//a list of all the saving throws the character is proficient in.
 	private List<String> backgroundProficencies;//a list of skills the character is proficient in given their background
 	private String name;//character's name
 	private String race;//character's race
 	private CharClass charClass;//character's class
 	private int lvl = 1;//starting level for all characters
 	private String background;//character's background
-	private List<String> proficiencientSkills;//list of skills the character is proficient in
 	
 	/**
 	 * Constructor for the character. Sets all stats to zero.
@@ -120,7 +117,11 @@ public class CharacterSheet {
 	 * @return the list of saving throws
 	 */
 	public String getSavingThrows() {
-		return Arrays.toString(savingThrows);
+		return charClass.getSavingThrows();
+	}
+	
+	public String getSavingThrowsJSON() {
+		return charClass.getSavingThrowsJSON();
 	}
 	
 	/**
@@ -158,7 +159,7 @@ public class CharacterSheet {
 	 * @return the background of the character
 	 */
 	public String getBackgroundJSON() {
-		return "{bg:\""+background + "\", backgroundProficiencies:" + backgroundProficencies +"}";
+		return "{\"bg\":\""+background + "\", \"backgroundProficiencies\":" + backgroundProficencies +"}";
 	}
 	
 	/**
@@ -209,8 +210,8 @@ public class CharacterSheet {
 	/**
 	 * @param skills are the skills we've chosen for this character
 	 */
-	public void setSkills(List<String> skills) {
-		this.proficiencientSkills = new ArrayList<String>(skills);
+	public void setSkills(String[] skills) {
+		charClass.setProficiencies(skills);
 	}
 	
 	/**
@@ -260,29 +261,25 @@ public class CharacterSheet {
 		for(int i = 0; i < STAT_NAMES.length; i++) {
 			ret += STAT_NAMES[i] + ": " + stats.get(STAT_NAMES[i])+"\n";
 		}
-		ret += "Proficient Skills: ";
-		System.out.println(proficiencientSkills);
-		for(String skill : proficiencientSkills) {
-			ret += "\n  " + skill;
-		}
+		ret += "Proficient Skills: " + charClass.getProficiencies();
 		return ret;
 	}
 	
 	public String toJSON() {
 		String ret = "{";
-		ret += "\"name\":\"" + getName() + "\"\n";
-		ret += "\"race\":\"" + getRace() + "\"\n";
-		ret += "\"class\":" + getCharJSON() + "\"\n";
-		ret += "\"lvl\":" + getLevel() + "\n";
-		ret += "\"background\":" + getBackgroundJSON() + "\n";
-		ret += "\"savingThrows\":" + getSavingThrows() + "\n";
-		ret += "\"proficiencyBonus\":" + "2" + "\n";
-		ret += "\"ac\":" + getAC() + "\n";
-		ret += "\"initiative\":" + getInitative() + "\n";
+		ret += "\"name\":\"" + getName() + "\",\n";
+		ret += "\"race\":\"" + getRace() + "\",\n";
+		ret += "\"class\":" + getCharJSON() + ",\n";
+		ret += "\"lvl\":" + getLevel() + ",\n";
+		ret += "\"background\":" + getBackgroundJSON() + ",\n";
+		ret += "\"savingThrows\":" + getSavingThrowsJSON() + ",\n";
+		ret += "\"proficiencyBonus\":" + "2" + ",\n";
+		ret += "\"ac\":" + getAC() + ",\n";
+		ret += "\"initiative\":" + getInitative() + ",\n";
 		for(int i = 0; i < STAT_NAMES.length; i++) {
-			ret += "\""+STAT_NAMES[i] + "\":" + stats.get(STAT_NAMES[i])+"\n";
+			ret += "\""+STAT_NAMES[i] + "\":" + stats.get(STAT_NAMES[i]) + ",\n";
 		}
-		ret += "\"proficientSkills\":"+proficiencientSkills;
+		ret += "\"proficientSkills\":"+ charClass.getProficienciesJSON();
 		ret += "\n}";
 		return ret;
 	}

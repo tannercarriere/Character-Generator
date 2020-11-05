@@ -1,8 +1,8 @@
 # Refactor in Progress
 Things that need to be done.
-1. Follow MVC design pattern. 
+1. Follow MVC design pattern. :heavy_check_mark:
 2. Change view to a web based application
-3. Serialize model classes. Ideally using json files in order to better support new view idea.
+3. Serialize model classes. Ideally using json files in order to better support new view idea. :heavy_check_mark:
 
 ## D&D character generator
 This takes from several .txt files to create a random Dungeons and Dragons character. The 

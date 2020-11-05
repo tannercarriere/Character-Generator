@@ -31,16 +31,16 @@ public class CharClass {
 		this.numProficiencies = numProficiencies;
 	}
 
-	public String[] getSavingThrows() {
-		return savingThrows;
+	public String getSavingThrows() {
+		return Arrays.toString(savingThrows);
 	}
 
 	public void setSavingThrows(String[] savingThrows) {
 		this.savingThrows = savingThrows;
 	}
 
-	public String[] getProficiencies() {
-		return proficiencies;
+	public String getProficiencies() {
+		return Arrays.toString(proficiencies);
 	}
 
 	public void setProficiencies(String[] proficiencies) {
@@ -52,6 +52,31 @@ public class CharClass {
 	}
 	
 	public String toJSON() {
-		return "name: " + Arrays.toString(savingThrows) + " " + Arrays.toString(proficiencies);
+
+		return "\"" + name + "\"";
+	}
+
+	public String getSavingThrowsJSON() {
+		String stJSON = "[";
+		for(int i = 0; i < savingThrows.length; i++) {
+			stJSON += "\"" + savingThrows[i].trim() + "\"";
+			if(i+1 != savingThrows.length) {
+				stJSON += ",";
+			}
+		}
+		stJSON += "]";
+		return stJSON;
+	}
+
+	public String getProficienciesJSON() {
+		String pJSON = "[";
+		for(int i = 0; i < proficiencies.length; i++) {
+			pJSON += "\"" + proficiencies[i].trim() + "\"";
+			if(i+1 != proficiencies.length) {
+				pJSON += ",";
+			}
+		}
+		pJSON += "]";
+		return pJSON;
 	}
 }
