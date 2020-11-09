@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import exceptions.ArraySizeMismatchException;
+
 enum Stats{
 	/**
 	 * The stats enum holds each of the six individual stats. 
@@ -209,8 +211,9 @@ public class CharacterSheet {
 	
 	/**
 	 * @param skills are the skills we've chosen for this character
+	 * @throws ArraySizeMismatchException If array given is outside of expected value
 	 */
-	public void setSkills(String[] skills) {
+	public void setSkills(String[] skills) throws ArraySizeMismatchException {
 		charClass.setProficiencies(skills);
 	}
 	
