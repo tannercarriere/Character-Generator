@@ -1,7 +1,7 @@
 # Refactor in Progress
 Things that need to be done.
 1. Follow MVC design pattern. :heavy_check_mark:
-2. Change view to a web based application
+2. Change view to a web based application: change to new goal, use this serverside in a web application.
 3. Serialize model classes. Ideally using json files in order to better support new view idea. :heavy_check_mark:
 
 ## D&D character generator
@@ -12,12 +12,6 @@ was to be able to have the building blocks to a character. Should a Dungeon Mast
 Non Player Character or a new player joins the game and they need a character in a hurry.
 
 Examples of character sheets can be found [here](https://dnd.wizards.com/articles/features/character_sheets)
-
-## Usage
-Have all the files outside the source, and launch Run. Run will prompt the user
-with a GUI interface to put in a file directory if none is given in config and a number of
-characters to generate. Simply put in a directory and select a number of characters then click
-"Create" and the characters will be placed in the designated folder.
 
 ## File Format
 ### config 
